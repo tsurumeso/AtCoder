@@ -1,5 +1,5 @@
 contest=$1
-mkdir $contest
+mkdir -p $contest
 touch $contest/a.cpp
 touch $contest/b.cpp
 touch $contest/c.cpp
