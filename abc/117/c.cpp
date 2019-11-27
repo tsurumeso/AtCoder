@@ -13,15 +13,25 @@ typedef pair<int, int> pi;
 typedef long long ll;
 
 void solve() {
-  string S;
-  cin >> S;
-  int n = S.size();
-  ll ans = 0;
-  for (int i = 0; i < n; i++) {
-    if (S[i] == 'U')
-      ans += n - i - 1 + 2 * i;
-    else
-      ans += 2 * (n - i - 1) + i;
+  int N, M;
+  cin >> N >> M;
+  if (N > M) {
+    cout << 0 << endl;
+    return;
+  }
+  vi X(M, 0);
+  vi L(M - 1, 0);
+  for (int i = 0; i < M; i++) {
+    cin >> X[i];
+  }
+  sort(all(X));
+  for (int i = 0; i < M - 1; i++) {
+    L[i] = X[i + 1] - X[i];
+  }
+  sort(rall(L));
+  int ans = X[X.size() - 1] - X[0];
+  for (int i = 0; i < N - 1; i++) {
+    ans -= L[i];
   }
   cout << ans << endl;
 }
