@@ -11,11 +11,15 @@ typedef vector<int> vi;
 typedef long long ll;
 
 void solve() {
-  int N, K;
-  string S;
-  cin >> N >> K >> S;
-  S[K - 1] = S[K - 1] + 0x20;
-  cout << S << endl;
+  int N;
+  cin >> N;
+  for (int i = 0; i < 50001; i++) {
+    if ((int)(i * 1.08) == N) {
+      cout << i << endl;
+      return;
+    }
+  }
+  cout << ":(" << endl;
 }
 
 int main() {
