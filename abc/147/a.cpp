@@ -11,16 +11,14 @@ typedef vector<int> vi;
 typedef long long ll;
 
 void solve() {
-  int N, L, eat = 0;
-  cin >> N >> L;
-  int R = L + N - 1;
-  if (R < 0)
-    eat = R;
-  else if (L > 0)
-    eat = L;
-  else
-    eat = 0;
-  cout << (N * (L + R) / 2) - eat << endl;
+  int a, b, c;
+  cin >> a >> b >> c;
+  if (a + b + c <= 21) {
+    cout << "win" << endl;
+  } else {
+    cout << "bust" << endl;
+  }
+  return;
 }
 
 int main() {
