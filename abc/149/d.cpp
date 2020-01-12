@@ -11,12 +11,6 @@ typedef vector<int> vi;
 typedef pair<int, int> pii;
 typedef long long ll;
 
-char choice(char x) {
-  if (x == 'r') return 'p';
-  if (x == 's') return 'r';
-  if (x == 'p') return 's';
-}
-
 void solve() {
   int N, K, R, S, P;
   string T;
