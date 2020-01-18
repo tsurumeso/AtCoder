@@ -8,8 +8,12 @@ using namespace std;
 #define rall(v) (v).rbegin(), (v).rend()
 
 typedef vector<int> vi;
+typedef vector<long long> vll;
+typedef vector<char> vc;
 typedef pair<int, int> pii;
 typedef long long ll;
+
+const int MOD = 1000000007;
 
 void solve() {
   char C;

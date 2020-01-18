@@ -8,11 +8,15 @@ using namespace std;
 #define rall(v) (v).rbegin(), (v).rend()
 
 typedef vector<int> vi;
+typedef vector<long long> vll;
+typedef vector<char> vc;
 typedef pair<int, int> pii;
 typedef long long ll;
 
+const int MOD = 1000000007;
+
 int col, row;
-vector<vector<char>> field;
+vector<vc> field;
 
 const pii dir[] = {
     {-1, 0},
@@ -27,7 +31,7 @@ bool is_in_field(const pii p) {
   return (0 <= c && c < col) && (0 <= r && r < row);
 }
 
-int wfs(const pii start) {
+int bfs(const pii start) {
   vector<vi> memo;
   for (int i = 0; i < row; ++i) {
     vi v(col, 0);
@@ -68,7 +72,7 @@ int wfs(const pii start) {
 void solve() {
   cin >> row >> col;
   for (int i = 0; i < row; ++i) {
-    vector<char> v(col, 0);
+    vc v(col, 0);
     for (int j = 0; j < col; ++j) {
       cin >> v[j];
     }
@@ -80,7 +84,7 @@ void solve() {
     for (int j = 0; j < col; ++j) {
       if (field[i][j] == '.') {
         pii start = make_pair(i, j);
-        ans = max(ans, wfs(start));
+        ans = max(ans, bfs(start));
       }
     }
   }
