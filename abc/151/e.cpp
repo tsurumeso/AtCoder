@@ -15,7 +15,7 @@ typedef long long ll;
 
 const int MOD = 1000000007;
 
-ll extgcd(ll a, ll b, ll &x, ll &y) {
+ll extgcd(int a, int b, ll &x, ll &y) {
   if (b == 0) {
     x = 1;
     y = 0;
@@ -62,8 +62,8 @@ void solve() {
   sort(all(A));
   ll sum = 0;
   for (int i = 0; i < N; i++) {
-    sum -= (ll)A[i] * cmb(N - i - 1, K - 1, fac, finv) % MOD;
-    sum += (ll)A[i] * cmb(i, K - 1, fac, finv) % MOD;
+    sum -= A[i] * cmb(N - i - 1, K - 1, fac, finv) % MOD;
+    sum += A[i] * cmb(i, K - 1, fac, finv) % MOD;
     sum %= MOD;
   }
   cout << sum << endl;
