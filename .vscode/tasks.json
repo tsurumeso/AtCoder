@@ -1,0 +1,28 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "build",
+            "command": "g++",
+            "args": [
+                "-std=gnu++1y",
+                "-g",
+                "-O0",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "test",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "type": "shell",
+            "command": "${workspaceFolder}/test.sh ${file}"
+        }
+    ],
+    "version": "2.0.0"
+}
