@@ -16,17 +16,13 @@ typedef long long ll;
 const int MOD = 1000000007;
 
 void solve() {
-  int N;
-  cin >> N;
-  vector<vi> table(10, vi(10, 0));
-  for (int i = 1; i < N + 1; i++) {
-    string istr = to_string(i);
-    table[int(istr.front() - '0')][int(istr.back() - '0')]++;
-  }
-  int ans = 0;
-  for (int i = 1; i < N + 1; i++) {
-    string istr = to_string(i);
-    ans += table[int(istr.back() - '0')][int(istr.front() - '0')];
+  ll N, M;
+  cin >> N >> M;
+  ll ans = 0;
+  if (N <= M / 2) {
+    ans = N + (M - 2 * N) / 4;
+  } else {
+    ans = M / 2;
   }
   cout << ans << endl;
 }

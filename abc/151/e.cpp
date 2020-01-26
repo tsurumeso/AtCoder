@@ -26,7 +26,7 @@ ll extgcd(int a, int b, ll &x, ll &y) {
   return d;
 }
 
-void cmb_init(int n, vll &fac, vll &finv) {
+void cmbmod_init(int n, vll &fac, vll &finv) {
   ll x, y;
   for (int i = 2; i <= n; i++) {
     fac[i] = fac[i - 1] * i % MOD;
@@ -35,7 +35,7 @@ void cmb_init(int n, vll &fac, vll &finv) {
   }
 }
 
-// void cmb_init(int n, vll &fac, vll &finv) {
+// void cmbmod_init(int n, vll &fac, vll &finv) {
 //   vll inv(n + 1, 1);
 //   for (int i = 2; i <= n; i++) {
 //     fac[i] = fac[i - 1] * i % MOD;
@@ -44,7 +44,7 @@ void cmb_init(int n, vll &fac, vll &finv) {
 //   }
 // }
 
-ll cmb(int n, int k, vll &fac, vll &finv) {
+ll cmbmod(int n, int k, vll &fac, vll &finv) {
   if (n < k) return 0;
   if (n < 0 || k < 0) return 0;
   return fac[n] * (finv[k] * finv[n - k] % MOD) % MOD;
@@ -58,12 +58,12 @@ void solve() {
     cin >> A[i];
   }
   vll fac(N + 1, 1), finv(N + 1, 1);
-  cmb_init(N, fac, finv);
+  cmbmod_init(N, fac, finv);
   sort(all(A));
   ll sum = 0;
   for (int i = 0; i < N; i++) {
-    sum -= A[i] * cmb(N - i - 1, K - 1, fac, finv) % MOD;
-    sum += A[i] * cmb(i, K - 1, fac, finv) % MOD;
+    sum -= A[i] * cmbmod(N - i - 1, K - 1, fac, finv) % MOD;
+    sum += A[i] * cmbmod(i, K - 1, fac, finv) % MOD;
     sum %= MOD;
   }
   cout << sum << endl;
