@@ -15,6 +15,7 @@ typedef map<int, int> mii;
 typedef long long ll;
 
 const int MOD = 1000000007;
+const int INF = 1000000007;
 
 void solve() {
   int H, N;
