@@ -11,30 +11,31 @@ typedef vector<int> vi;
 typedef vector<long long> vll;
 typedef vector<char> vc;
 typedef pair<int, int> pii;
+typedef map<int, int> mii;
 typedef long long ll;
 
 const int MOD = 1000000007;
 
+// two pointers
 void solve() {
-  int N;
-  cin >> N;
-  map<int, int> A;
-  vi A_cand;
+  ll N, K;
+  cin >> N >> K;
+  vi A(N, 0);
   for (int i = 0; i < N; i++) {
-    int a;
-    cin >> a;
-    A[a]++;
-    if (A[a] == 2) {
-      A_cand.push_back(a);
-      A[a] = 0;
+    cin >> A[i];
+  }
+  int r = 0;
+  ll ans = 0, sum = 0;
+  for (int l = 0; l < N; l++) {
+    while (r < N && sum < K) {
+      sum += A[r];
+      r++;
     }
+    if (sum < K) break;
+    ans += N - r + 1;
+    sum -= A[l];
   }
-  if (A_cand.size() > 1) {
-    sort(rall(A_cand));
-    cout << (ll)A_cand[0] * A_cand[1] << endl;
-  } else {
-    cout << 0 << endl;
-  }
+  cout << ans << endl;
 }
 
 int main() {

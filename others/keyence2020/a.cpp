@@ -16,25 +16,14 @@ typedef long long ll;
 const int MOD = 1000000007;
 
 void solve() {
-  int N;
-  cin >> N;
-  map<int, int> A;
-  vi A_cand;
-  for (int i = 0; i < N; i++) {
-    int a;
-    cin >> a;
-    A[a]++;
-    if (A[a] == 2) {
-      A_cand.push_back(a);
-      A[a] = 0;
-    }
+  int H, W, N;
+  cin >> H >> W >> N;
+  int m = max(H, W);
+  int ans = N / m;
+  if (N % m) {
+    ans++;
   }
-  if (A_cand.size() > 1) {
-    sort(rall(A_cand));
-    cout << (ll)A_cand[0] * A_cand[1] << endl;
-  } else {
-    cout << 0 << endl;
-  }
+  cout << ans << endl;
 }
 
 int main() {

@@ -11,30 +11,17 @@ typedef vector<int> vi;
 typedef vector<long long> vll;
 typedef vector<char> vc;
 typedef pair<int, int> pii;
+typedef map<int, int> mii;
 typedef long long ll;
 
 const int MOD = 1000000007;
 
 void solve() {
-  int N;
-  cin >> N;
-  map<int, int> A;
-  vi A_cand;
-  for (int i = 0; i < N; i++) {
-    int a;
-    cin >> a;
-    A[a]++;
-    if (A[a] == 2) {
-      A_cand.push_back(a);
-      A[a] = 0;
-    }
-  }
-  if (A_cand.size() > 1) {
-    sort(rall(A_cand));
-    cout << (ll)A_cand[0] * A_cand[1] << endl;
-  } else {
-    cout << 0 << endl;
-  }
+  int W, H, x, y;
+  cin >> W >> H >> x >> y;
+  vi S(4, 0);
+  double ans = (double)W * (double)H / 2;
+  printf("%f %d", ans, W == x * 2 && H == y * 2);
 }
 
 int main() {

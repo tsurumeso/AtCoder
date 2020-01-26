@@ -11,6 +11,7 @@ typedef vector<int> vi;
 typedef vector<long long> vll;
 typedef vector<char> vc;
 typedef pair<int, int> pii;
+typedef map<int, int> mii;
 typedef long long ll;
 
 const int MOD = 1000000007;
@@ -18,22 +19,18 @@ const int MOD = 1000000007;
 void solve() {
   int N;
   cin >> N;
-  map<int, int> A;
-  vi A_cand;
-  for (int i = 0; i < N; i++) {
-    int a;
-    cin >> a;
-    A[a]++;
-    if (A[a] == 2) {
-      A_cand.push_back(a);
-      A[a] = 0;
-    }
+  vi A(N + 2, 0);
+  for (int i = 1; i < N + 1; i++) {
+    cin >> A[i];
   }
-  if (A_cand.size() > 1) {
-    sort(rall(A_cand));
-    cout << (ll)A_cand[0] * A_cand[1] << endl;
-  } else {
-    cout << 0 << endl;
+  int sum = 0;
+  for (int i = 1; i < N + 2; i++) {
+    sum += abs(A[i] - A[i - 1]);
+  }
+  for (int i = 0; i < N; i++) {
+    int sub = abs(A[i] - A[i + 1]) + abs(A[i + 1] - A[i + 2]);
+    int add = abs(A[i] - A[i + 2]);
+    cout << sum - sub + add << endl;
   }
 }
 

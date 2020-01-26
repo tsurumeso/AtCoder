@@ -16,25 +16,17 @@ typedef long long ll;
 const int MOD = 1000000007;
 
 void solve() {
-  int N;
-  cin >> N;
-  map<int, int> A;
-  vi A_cand;
+  int N, K, S;
+  cin >> N >> K >> S;
+  int dummy = S == 1000000000 ? 1 : S + 1;
   for (int i = 0; i < N; i++) {
-    int a;
-    cin >> a;
-    A[a]++;
-    if (A[a] == 2) {
-      A_cand.push_back(a);
-      A[a] = 0;
+    if (i < K) {
+      cout << S << ' ';
+    } else {
+      cout << dummy << ' ';
     }
   }
-  if (A_cand.size() > 1) {
-    sort(rall(A_cand));
-    cout << (ll)A_cand[0] * A_cand[1] << endl;
-  } else {
-    cout << 0 << endl;
-  }
+  cout << endl;
 }
 
 int main() {
