@@ -14,19 +14,28 @@ const int INF = 1000000007;
 const ll INFLL = 1000000000000000007LL;
 
 void solve() {
-  ll N, A, B;
-  cin >> N >> A >> B;
-  ll d = B - A;
-  if (d % 2 == 0) {
-    cout << d / 2 << endl;
-  } else {
-    cout << (B - A + 1) / 2 + min(A - 1, N - B) << endl;
+  int N;
+  cin >> N;
+  vector<int> X(N, 0);
+  for (int i = 0; i < N; i++) {
+    cin >> X[i];
   }
+  int ans = INF;
+  sort(all(X));
+  for (int i = X.front(); i <= X.back(); i++) {
+    int tmp = 0;
+    for (int j = 0; j < N; j++) {
+      tmp += sqr(X[j] - i);
+    }
+    ans = min(ans, tmp);
+  }
+  cout << ans << endl;
 }
 
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
+  // cout << fixed << setprecision(12);
 
   solve();
 

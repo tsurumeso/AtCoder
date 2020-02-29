@@ -7,13 +7,11 @@ using namespace std;
 #define all(v) (v).begin(), (v).end()
 #define rall(v) (v).rbegin(), (v).rend()
 
-typedef vector<int> vi;
-typedef vector<long long> vll;
-typedef vector<char> vc;
-typedef pair<int, int> pii;
 typedef long long ll;
 
 const int MOD = 1000000007;
+const int INF = 1000000007;
+const ll INFLL = 1000000000000000007LL;
 
 ll extgcd(int a, int b, ll &x, ll &y) {
   if (b == 0) {
@@ -26,7 +24,7 @@ ll extgcd(int a, int b, ll &x, ll &y) {
   return d;
 }
 
-void cmbmod_init(int n, vll &fac, vll &finv) {
+void modcmb_init(int n, vector<ll> &fac, vector<ll> &finv) {
   ll x, y;
   for (int i = 2; i <= n; i++) {
     fac[i] = fac[i - 1] * i % MOD;
@@ -35,8 +33,8 @@ void cmbmod_init(int n, vll &fac, vll &finv) {
   }
 }
 
-// void cmbmod_init(int n, vll &fac, vll &finv) {
-//   vll inv(n + 1, 1);
+// void modcmb_init(int n, vector<ll> &fac, vector<ll> &finv) {
+//   vector<ll> inv(n + 1, 1);
 //   for (int i = 2; i <= n; i++) {
 //     fac[i] = fac[i - 1] * i % MOD;
 //     inv[i] = MOD - inv[MOD % i] * (MOD / i) % MOD;
@@ -44,7 +42,7 @@ void cmbmod_init(int n, vll &fac, vll &finv) {
 //   }
 // }
 
-ll cmbmod(int n, int k, vll &fac, vll &finv) {
+ll modcmb(int n, int k, vector<ll> &fac, vector<ll> &finv) {
   if (n < k) return 0;
   if (n < 0 || k < 0) return 0;
   return fac[n] * (finv[k] * finv[n - k] % MOD) % MOD;
@@ -53,17 +51,17 @@ ll cmbmod(int n, int k, vll &fac, vll &finv) {
 void solve() {
   int N, K;
   cin >> N >> K;
-  vi A(N, 0);
+  vector<int> A(N, 0);
   for (int i = 0; i < N; i++) {
     cin >> A[i];
   }
-  vll fac(N + 1, 1), finv(N + 1, 1);
-  cmbmod_init(N, fac, finv);
+  vector<ll> fac(N + 1, 1), finv(N + 1, 1);
+  modcmb_init(N, fac, finv);
   sort(all(A));
   ll sum = 0;
   for (int i = 0; i < N; i++) {
-    sum -= A[i] * cmbmod(N - i - 1, K - 1, fac, finv) % MOD;
-    sum += A[i] * cmbmod(i, K - 1, fac, finv) % MOD;
+    sum -= A[i] * modcmb(N - i - 1, K - 1, fac, finv) % MOD;
+    sum += A[i] * modcmb(i, K - 1, fac, finv) % MOD;
     sum %= MOD;
   }
   cout << sum << endl;

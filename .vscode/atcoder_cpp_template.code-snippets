@@ -15,6 +15,7 @@
 			"",
 			"const int MOD = 1000000007;",
 			"const int INF = 1000000007;",
+			"const ll INFLL = 1000000000000000007LL;",
 			"",
 			"void solve() {",
 			"  $1",

@@ -7,46 +7,46 @@ using namespace std;
 #define all(v) (v).begin(), (v).end()
 #define rall(v) (v).rbegin(), (v).rend()
 
-typedef vector<int> vi;
-typedef vector<long long> vll;
-typedef vector<char> vc;
-typedef pair<int, int> pii;
 typedef long long ll;
 
 const int MOD = 1000000007;
+const int INF = 1000000007;
+const ll INFLL = 1000000000000000007LL;
 
 int col, row;
-vector<vc> field;
+vector<vector<char>> field;
 
-const pii dir[] = {
+const pair<int, int> dir[] = {
     {-1, 0},
     {1, 0},
     {0, -1},
     {0, 1},
 };
 
-bool is_in_field(const pii p) {
+bool is_in_field(const pair<int, int> p) {
   const int c = p.second;
   const int r = p.first;
   return (0 <= c && c < col) && (0 <= r && r < row);
 }
 
-int bfs(const pii start) {
-  vector<vi> memo;
+int bfs(const pair<int, int> start) {
+  vector<vector<int>> memo;
   for (int i = 0; i < row; ++i) {
-    vi v(col, 0);
+    vector<int> v(col, 0);
     memo.push_back(v);
   }
 
-  queue<pii> q;
+  queue<pair<int, int>> q;
   q.push(start);
 
   while (!q.empty()) {
-    pii cur = q.front();
+    pair<int, int> cur = q.front();
     q.pop();
 
     for (const auto d : dir) {
-      pii next = make_pair(cur.first + d.first, cur.second + d.second);
+      pair<int, int> next;
+      next.first = cur.first + d.first;
+      next.second = cur.second + d.second;
       if (is_in_field(next)) {
         const char p = field[next.first][next.second];
         if (p == '.' && next != start) {
@@ -72,7 +72,7 @@ int bfs(const pii start) {
 void solve() {
   cin >> row >> col;
   for (int i = 0; i < row; ++i) {
-    vc v(col, 0);
+    vector<char> v(col, 0);
     for (int j = 0; j < col; ++j) {
       cin >> v[j];
     }
@@ -83,7 +83,7 @@ void solve() {
   for (int i = 0; i < row; ++i) {
     for (int j = 0; j < col; ++j) {
       if (field[i][j] == '.') {
-        pii start = make_pair(i, j);
+        pair<int, int> start = make_pair(i, j);
         ans = max(ans, bfs(start));
       }
     }

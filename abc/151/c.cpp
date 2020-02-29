@@ -7,13 +7,11 @@ using namespace std;
 #define all(v) (v).begin(), (v).end()
 #define rall(v) (v).rbegin(), (v).rend()
 
-typedef vector<int> vi;
-typedef vector<long long> vll;
-typedef vector<char> vc;
-typedef pair<int, int> pii;
 typedef long long ll;
 
 const int MOD = 1000000007;
+const int INF = 1000000007;
+const ll INFLL = 1000000000000000007LL;
 
 void solve() {
   int N, M;
