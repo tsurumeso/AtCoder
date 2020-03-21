@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 #include <algorithm>
 
 using namespace std;
@@ -7,10 +8,11 @@ using namespace std;
 #define all(v) (v).begin(), (v).end()
 #define rall(v) (v).rbegin(), (v).rend()
 
-typedef vector<int> vi;
-typedef map<int, int> mi;
-typedef pair<int, int> pi;
 typedef long long ll;
+
+const int MOD = 1000000007;
+const int INF = 1000000007;
+const ll INFLL = 1000000000000000007LL;
 
 void solve() {
   ll A, B, X;

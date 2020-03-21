@@ -15,13 +15,12 @@ const int INF = 1000000007;
 const ll INFLL = 1000000000000000007LL;
 
 void solve() {
-  string S;
-  cin >> S;
-  string ans = "Yes";
-  if (S[0] == S[1] && S[1] == S[2]) {
-    ans = "No";
-  }
-  cout << ans << endl;
+  ll H, W;
+  cin >> H >> W;
+  if (H == 1 || W == 1)
+    cout << 1 << endl;
+  else
+    cout << (H * W + 1) / 2 << endl;
 }
 
 int main() {

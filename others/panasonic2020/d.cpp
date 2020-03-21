@@ -14,14 +14,21 @@ const int MOD = 1000000007;
 const int INF = 1000000007;
 const ll INFLL = 1000000000000000007LL;
 
-void solve() {
-  string S;
-  cin >> S;
-  string ans = "Yes";
-  if (S[0] == S[1] && S[1] == S[2]) {
-    ans = "No";
+int N;
+
+void dfs(string s, char mx) {
+  if (N == s.size()) {
+    cout << s << endl;
+  } else {
+    for (char c = 'a'; c <= mx; c++) {
+      dfs(s + c, (c == mx) ? (mx + 1) : mx);
+    }
   }
-  cout << ans << endl;
+}
+
+void solve() {
+  cin >> N;
+  dfs("", 'a');
 }
 
 int main() {

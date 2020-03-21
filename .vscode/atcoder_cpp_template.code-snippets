@@ -3,6 +3,7 @@
 		"prefix": "atcoder",
 		"body": [
 			"#include <bits/stdc++.h>",
+			"",
 			"#include <algorithm>",
 			"",
 			"using namespace std;",

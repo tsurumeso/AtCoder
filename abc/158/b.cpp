@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 #include <algorithm>
 
 using namespace std;
@@ -17,12 +18,7 @@ void solve() {
   ll N, A, B;
   cin >> N >> A >> B;
   ll ans = (N / (A + B) * A);
-  ll mod = N % (A + B);
-  if (mod <= A) {
-    ans += mod;
-  } else {
-    ans += A;
-  }
+  ans += min(A, N % (A + B));
   cout << ans << endl;
 }
 

@@ -15,13 +15,16 @@ const int INF = 1000000007;
 const ll INFLL = 1000000000000000007LL;
 
 void solve() {
-  string S;
-  cin >> S;
-  string ans = "Yes";
-  if (S[0] == S[1] && S[1] == S[2]) {
-    ans = "No";
+  ll a, b, c;
+  cin >> a >> b >> c;
+  ll d = c - a - b;
+  if (d < 0) {
+    cout << "No" << endl;
+  } else if (4 * a * b < sqr(d)) {
+    cout << "Yes" << endl;
+  } else {
+    cout << "No" << endl;
   }
-  cout << ans << endl;
 }
 
 int main() {
