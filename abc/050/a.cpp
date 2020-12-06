@@ -14,12 +14,15 @@ const int MOD = 1000000007;
 const int INF = 1000000007;
 const ll INFLL = 1000000000000000007LL;
 
-int ceil(int a, int b) { return (a + (b - 1)) / b; }
-
 void solve() {
-  int a, b;
-  cin >> a >> b;
-  cout << ceil(a + b, 2) << endl;
+  int A, B;
+  char op;
+  cin >> A >> op >> B;
+  if (op == '+') {
+    cout << A + B << endl;
+  } else if (op == '-') {
+    cout << A - B << endl;
+  }
 }
 
 int main() {

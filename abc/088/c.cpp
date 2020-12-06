@@ -1,17 +1,25 @@
 #include <bits/stdc++.h>
-#include <algorithm>
 
-#define rep1(i, a, n) for (int i = a; i < n; i++)
-#define rep2(i, a, n) for (int i = n; i >= a; i--)
-#define asc(v) sort(v.begin(), v.end())
-#define desc(v) sort(v.begin(), v.end(), greater<int>())
+#include <algorithm>
 
 using namespace std;
 
-int main() {
+#define sqr(x) ((x) * (x))
+#define all(v) (v).begin(), (v).end()
+#define rall(v) (v).rbegin(), (v).rend()
+
+typedef long long ll;
+
+const int MOD = 1000000007;
+const int INF = 1000000007;
+const ll INFLL = 1000000000000000007LL;
+
+void solve() {
   int C[3][3];
-  rep1(i, 0, 3) {
-    rep1(j, 0, 3) { cin >> C[i][j]; }
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      cin >> C[i][j];
+    }
   }
 
   string ans = "Yes";
@@ -20,6 +28,14 @@ int main() {
   if ((C[1][1] - C[1][0]) != (C[2][1] - C[2][0])) ans = "No";
   if ((C[1][2] - C[1][1]) != (C[2][2] - C[2][1])) ans = "No";
   cout << ans << endl;
+}
+
+int main() {
+  cin.tie(0);
+  ios::sync_with_stdio(false);
+  // cout << fixed << setprecision(12);
+
+  solve();
 
   return 0;
 }
