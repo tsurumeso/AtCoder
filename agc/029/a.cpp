@@ -15,24 +15,15 @@ const int INF = 1000000007;
 const ll INFLL = 1000000000000000007LL;
 
 void solve() {
-  int N, M;
-  cin >> N;
-  map<int, int> D_cnt, T_cnt;
-  for (int i = 0; i < N; i++) {
-    int d;
-    cin >> d;
-    D_cnt[d] = D_cnt[d] + 1;
-  }
-  cin >> M;
-  for (int i = 0; i < M; i++) {
-    int t;
-    cin >> t;
-    T_cnt[t] = T_cnt[t] + 1;
-  }
-
-  string ans = "YES";
-  for (auto x : T_cnt) {
-    if (D_cnt[x.first] < x.second) ans = "NO";
+  string S;
+  cin >> S;
+  ll cnt = 0;
+  ll ans = 0;
+  for (int i = 0; i < S.size(); i++) {
+    if (S[i] == 'W') {
+      ans += i - cnt;
+      cnt++;
+    }
   }
   cout << ans << endl;
 }

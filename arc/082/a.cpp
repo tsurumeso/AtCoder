@@ -15,24 +15,17 @@ const int INF = 1000000007;
 const ll INFLL = 1000000000000000007LL;
 
 void solve() {
-  int N, M;
+  int N;
   cin >> N;
-  map<int, int> D_cnt, T_cnt;
+  vector<int> cnt(100009, 0);
   for (int i = 0; i < N; i++) {
-    int d;
-    cin >> d;
-    D_cnt[d] = D_cnt[d] + 1;
+    int a;
+    cin >> a;
+    cnt[a]++;
   }
-  cin >> M;
-  for (int i = 0; i < M; i++) {
-    int t;
-    cin >> t;
-    T_cnt[t] = T_cnt[t] + 1;
-  }
-
-  string ans = "YES";
-  for (auto x : T_cnt) {
-    if (D_cnt[x.first] < x.second) ans = "NO";
+  int ans = 0;
+  for (int i = 0; i < 100000; i++) {
+    ans = max(ans, cnt[i] + cnt[i + 1] + cnt[i + 2]);
   }
   cout << ans << endl;
 }

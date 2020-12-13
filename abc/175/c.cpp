@@ -15,26 +15,17 @@ const int INF = 1000000007;
 const ll INFLL = 1000000000000000007LL;
 
 void solve() {
-  int N, M;
-  cin >> N;
-  map<int, int> D_cnt, T_cnt;
-  for (int i = 0; i < N; i++) {
-    int d;
-    cin >> d;
-    D_cnt[d] = D_cnt[d] + 1;
+  ll X, K, D;
+  cin >> X >> K >> D;
+  X = abs(X);
+  ll num = min(K, X / D);
+  K -= num;
+  X -= num * D;
+  if (K % 2 == 0) {
+    cout << X << endl;
+  } else {
+    cout << abs(X - D) << endl;
   }
-  cin >> M;
-  for (int i = 0; i < M; i++) {
-    int t;
-    cin >> t;
-    T_cnt[t] = T_cnt[t] + 1;
-  }
-
-  string ans = "YES";
-  for (auto x : T_cnt) {
-    if (D_cnt[x.first] < x.second) ans = "NO";
-  }
-  cout << ans << endl;
 }
 
 int main() {

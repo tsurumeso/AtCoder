@@ -16,25 +16,27 @@ const ll INFLL = 1000000000000000007LL;
 
 void solve() {
   int N, M;
-  cin >> N;
-  map<int, int> D_cnt, T_cnt;
+  cin >> N >> M;
+  vector<int> A(N), B(N);
+  vector<int> C(N), D(N);
   for (int i = 0; i < N; i++) {
-    int d;
-    cin >> d;
-    D_cnt[d] = D_cnt[d] + 1;
+    cin >> A[i] >> B[i];
   }
-  cin >> M;
   for (int i = 0; i < M; i++) {
-    int t;
-    cin >> t;
-    T_cnt[t] = T_cnt[t] + 1;
+    cin >> C[i] >> D[i];
   }
-
-  string ans = "YES";
-  for (auto x : T_cnt) {
-    if (D_cnt[x.first] < x.second) ans = "NO";
+  for (int i = 0; i < N; i++) {
+    int m = INF;
+    int ans = 0;
+    for (int j = 0; j < M; j++) {
+      int d = abs(A[i] - C[j]) + abs(B[i] - D[j]);
+      if (d < m) {
+        ans = j;
+        m = d;
+      }
+    }
+    cout << ans + 1 << endl;
   }
-  cout << ans << endl;
 }
 
 int main() {
