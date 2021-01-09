@@ -8,7 +8,7 @@ else
     contest_name=${contest_name}${SPLITFILEPATH[-2]}
 fi
 oj dl "https://${contest_name}.contest.atcoder.jp/tasks/${contest_name//-/_}_${problem}"
-g++ -Wall -std=c++14 $FILEPATH
+g++ -Wall -std=gnu++17 $FILEPATH
 oj test
 rm -f a.out
 rm -rf test

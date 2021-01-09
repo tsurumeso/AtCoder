@@ -5,7 +5,7 @@
             "label": "build",
             "command": "g++",
             "args": [
-                "-std=gnu++1y",
+                "-std=gnu++17",
                 "-g",
                 "-O0",
                 "${file}",
